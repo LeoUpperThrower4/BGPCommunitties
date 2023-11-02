@@ -1,3 +1,27 @@
+# Anotações Leo
+https://docs.ix.br/doc/communities-table-ix-br-v2_0-24112022.pdf
+
+//Pegar os routeserver
+https://lg.ix.br/api/v1/routeservers
+
+//Pegar os neighbors
+https://lg.ix.br/api/v1/routeservers/RS-rs1-v4/neighbors
+
+Com o ID dos neighbors a gente consegue ver as rotas anunciadas, usando a seguinte API
+https://lg.ix.br/api/v1/routeservers/RS-rs1-v4/neighbors/ID_DONEIGHBOR/routes/received
+
+
+No dia XX tinham YY membros. Desses, nós vimos ZZ usando pelo menos AA comunidades BGP de ação
+
+"Pra cada localidade, quantos AS utilizam pelo menos uma comunidade de ação (IPV4 e IPV6)"
+
+"O membro ta anunciando 20 rotas e ele usa comunidades de ação. Com que frequeência ele usa? São todas as rotas? Quantos % usam?"
+"Quais as comunidades mais populares?"
+
+"O comportamento de uma rede em IPV4 é a mesma em uma IPV6? Analisar as características gerais"
+
+# Anotações Rafael
+
 https://docs.ix.br/doc/communities-table-ix-br-v2_0-24112022.pdf
 Lista de route servers: 
 https://lg.ix.br/api/v1/routeservers
