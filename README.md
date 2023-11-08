@@ -20,6 +20,14 @@ No dia XX tinham YY membros. Desses, nós vimos ZZ usando pelo menos AA comunida
 
 "O comportamento de uma rede em IPV4 é a mesma em uma IPV6? Analisar as características gerais"
 
+
+
+# Semana 2
+- ver as mais usadas
+- oq um AS faz em SP X tbm faz em RJ?
+  - comparar v4 e v6
+  - ele nao usa comunidades/nao anuncia
+
 # Anotações Rafael
 
 https://docs.ix.br/doc/communities-table-ix-br-v2_0-24112022.pdf
