@@ -1,12 +1,27 @@
 import requests
 import json
-
+import time
 # Lista de Comunidades de Ação BGP
 # TODO: atualizar com os valores corretos
+# Link: https://docs.ix.br/doc/communities-table-ix-br-v2_0-24112022.pdf
 actionBGPCommunitiesList = [
+  65000,
+  65001,
+  64601,
+  64602,
+  64603,
+  65535,
   65002,
   65003,
   65004,
+  65010,
+  64611,
+  64612,
+  64613,
+  65011,
+  64621,
+  64622,
+  64623
 ]
 
 # Retorna a lista de todos os servidores
@@ -35,19 +50,19 @@ def getAnnouncedRoutes(serverId, neighborId, page):
 def getAllAnnouncedRoutesOfNeighbor(serverId, neighborId) -> list:
   allRoutes = []
   currentPage = 0
+  print('Getting routes of neighbor ' + neighborId)
   while True:
     announcedRoutes = getAnnouncedRoutes(serverId, neighborId, currentPage)
-    currentPage += 1
-
     allRoutes += list(announcedRoutes.get('imported'))
-
     ## Condições de saída
     # se for a ultima pagina
     if announcedRoutes.get('pagination').get('total_pages') - 1 == currentPage: break
     # se o campo 'imported' estiver vazio
     if not(announcedRoutes.get('imported')): break
     # se der problema no loop, sai na centesima pagina
+    
     if currentPage == 100 : break
+    currentPage += 1
 
   return allRoutes
 
@@ -59,7 +74,7 @@ def getAllAnnouncedRoutesOfServer(serverId) -> list:
   for neighbor in neighbors:
     allRoutes += getAllAnnouncedRoutesOfNeighbor(serverId, neighbor.get('id'))
     counter += 1
-    if counter == 3: break # Limite para testes. Fica mais rapido e não consome toda a cota da API
+    # if counter == 1: break # Limite para testes. Fica mais rapido e não consome toda a cota da API
   return allRoutes
 
 def getAllActionBGPCommunitties(communitiesList) -> list:
@@ -81,7 +96,6 @@ if __name__ == '__main__':
   # TODO: depois que o script estiver pronto, remover o limite de 3 neighbors e fazer um loop em todos os servidores usando getRouteServerList()
   serverId = 'BEL-rs1-v4'
   announcedRoutes = getAllAnnouncedRoutesOfServer(serverId)
-
   neighborComunityDict = {}
   for route in announcedRoutes:
     communitiesList = list(route.get('bgp').get('communities'))
@@ -91,6 +105,5 @@ if __name__ == '__main__':
     # TODO: devemos usar o ID da rota ou o ID do neighbor?
     allRouteCommunities = getAllActionBGPCommunitties(communitiesList)
     if allRouteCommunities:
-      neighborComunityDict[route.get('id')] = allRouteCommunities
-
+      neighborComunityDict[route.get('neighbor_id')] = allRouteCommunities
   displayInformation(neighborComunityDict)
