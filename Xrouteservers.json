@@ -1,0 +1,11 @@
+{
+  "routeservers": [
+    {
+      "id": "RS-rs1-v4",
+      "type": "bird",
+      "name": "rs1.portoalegre.rs.ix.br (IPv4)",
+      "group": "IX.br Porto Alegre/RS",
+      "blackholes": []
+    }
+  ]
+}
