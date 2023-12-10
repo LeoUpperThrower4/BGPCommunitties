@@ -1,0 +1,60 @@
+{
+  "routeservers": [
+    {
+      "id": "SP-rs2-v4",
+      "type": "bird",
+      "name": "rs2.saopaulo.sp.ix.br (IPv4)",
+      "group": "IX.br S\u00e3o Paulo/SP",
+      "blackholes": []
+    },
+    {
+      "id": "SP-rs2-v6",
+      "type": "bird",
+      "name": "rs2.saopaulo.sp.ix.br (IPv6)",
+      "group": "IX.br S\u00e3o Paulo/SP",
+      "blackholes": []
+    },
+    {
+      "id": "RJ-rs1-v4",
+      "type": "bird",
+      "name": "rs1.riodejaneiro.rj.ix.br (IPv4)",
+      "group": "IX.br Rio de Janeiro/RJ",
+      "blackholes": []
+    },
+    {
+      "id": "RJ-rs1-v6",
+      "type": "bird",
+      "name": "rs1.riodejaneiro.rj.ix.br (IPv6)",
+      "group": "IX.br Rio de Janeiro/RJ",
+      "blackholes": []
+    },
+    {
+      "id": "CE-rs1-v4",
+      "type": "bird",
+      "name": "rs1.fortaleza.ce.ix.br (IPv4)",
+      "group": "IX.br Fortaleza/CE",
+      "blackholes": []
+    },
+    {
+      "id": "CE-rs1-v6",
+      "type": "bird",
+      "name": "rs1.fortaleza.ce.ix.br (IPv6)",
+      "group": "IX.br Fortaleza/CE",
+      "blackholes": []
+    },
+    {
+      "id": "RS-rs1-v4",
+      "type": "bird",
+      "name": "rs1.portoalegre.rs.ix.br (IPv4)",
+      "group": "IX.br Porto Alegre/RS",
+      "blackholes": []
+    },
+    {
+      "id": "RS-rs1-v6",
+      "type": "bird",
+      "name": "rs1.portoalegre.rs.ix.br (IPv6)",
+      "group": "IX.br Porto Alegre/RS",
+      "blackholes": []
+    }
+  ]
+}
