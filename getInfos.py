@@ -55,13 +55,31 @@ def getAllRoutesAnnouncedWithActionBGPCommunities():
         routesPerIX.update({server.get('id'): numberOfRoutes})
   return routesPerIX
 
+def getAllRoutesAndTheirBGPCommunities():
+  routeAndBGPCommunities = {} 
+  # adicionar pra cada IX
+  with open('routeservers.json', 'r') as serversFile:
+     servers = json.load(serversFile).get('routeservers')
+     for server in servers:
+      serverName = server.get('id')
+      serverRouteAndBGPCommunities = {} 
+      with open("treatedResults-"+server.get('id')+".json", 'r') as resultsFile:
+        results = json.load(resultsFile).get('results')
+        for key, value in results.get('announced_bgp_per_router_per_neighbor').items():
+          for routeObj in value:
+            route = list(routeObj.keys())[0]
+            serverRouteAndBGPCommunities.update({route: routeObj[route]})
+      routeAndBGPCommunities.update({serverName: serverRouteAndBGPCommunities})
+  return routeAndBGPCommunities
+
 if __name__ == '__main__':
   with open('infos.json', 'w') as f:
     infos = {
       "members": getAllMembers(),
       "routes": getAllRoutes(),
       "membersBGPCommunities": getAllMembersAnnouncingRoutesWithActionBGPCommunities(),
-      "routesBGPCommunities": getAllRoutesAnnouncedWithActionBGPCommunities()
+      "routesBGPCommunities": getAllRoutesAnnouncedWithActionBGPCommunities(),
+      "routesAndBGPCommunities": getAllRoutesAndTheirBGPCommunities(),
     }
     json.dump({"infos": infos}, f)
 
