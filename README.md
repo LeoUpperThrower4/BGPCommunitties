@@ -1,3 +1,11 @@
+# Links
+## GitHub
+https://github.com/LeoUpperThrower4/BGPCommunitties
+
+
+
+
+
 # Anotações Leo
 https://docs.ix.br/doc/communities-table-ix-br-v2_0-24112022.pdf
 
